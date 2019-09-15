@@ -1,5 +1,3 @@
-package cloud.thecode.spinningwheellibrary;
-
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.support.v4.view.animation.PathInterpolatorCompat;
