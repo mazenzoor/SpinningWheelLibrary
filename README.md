@@ -10,7 +10,7 @@
   Wheel myWheel = new Wheel(); 
  ```
  
- #### Constructor accepts _[ optional ]_
+ #### Constructor Parameters _[ optional ]_
  
  ```java
 
