@@ -27,13 +27,12 @@
   
   - **animationDuration** : In milli seconds the duration of the entire spin animation
   
-  
+  <br><br>
   
   #### Spinning The Wheel
   
   Call the spinTo method and pass in the index (starting from 0)
   
    ```java
-    
     spinTo(int index)
    ```
