@@ -34,7 +34,7 @@
   Call the spinTo method and pass in the index (starting from 0)
   
    ```java
-    spinTo(int index)
+    myWheel.spinTo(int index)
    ```
 
 
