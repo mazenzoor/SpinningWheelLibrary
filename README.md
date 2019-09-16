@@ -19,9 +19,11 @@ Create a Wheel object using constructors
                               [int nbOfSpins, int animationDuration]); 
    ```
   
-  **nbOfSlices** : The number of slices in your wheel (start count from 1)
+  - **wheelImageView** : The ImageView from layout (only the circular part)
+    
+  - **nbOfSlices** : The number of slices in your wheel (start count from 1)
   
-  **nbOfSpins** : How many rotations to animate before landing on the destinatino slice
+  - **nbOfSpins** : How many rotations to animate before landing on the destinatino slice
   
-  **animationDuration** : In milli seconds the duration of the entire spin animation
+  - **animationDuration** : In milli seconds the duration of the entire spin animation
   
