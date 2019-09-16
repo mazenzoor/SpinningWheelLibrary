@@ -30,9 +30,22 @@
   <br><br>
   
   #### Spinning The Wheel
-  
+
   Call the spinTo method and pass in the index (starting from 0)
   
    ```java
     spinTo(int index)
    ```
+
+
+#### Implement Callback
+
+When the animation ends a callback method can be called
+
+1. In your class implement **WheelCallback** interface
+2. Create a WheelCallback instance where you can write your code to execute after animation ends
+3. Set the callback instance you created by calling:
+   ```java
+    myWheel.setCallback(myCallback);
+   ```
+  
