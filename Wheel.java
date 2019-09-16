@@ -88,7 +88,6 @@ public class Wheel {
     //// The constructor that initializes everything
     //// Required params are
     //// wheel : Image View of the wheel
-    //// spinButton : Button that will trigger the spinning
     //// nbOfSlices : integer of the number of slices in the wheel
 
     public
