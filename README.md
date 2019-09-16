@@ -47,7 +47,7 @@ dependencies {
   
   <br><br>
   
-  ### Spinning The Wheel
+  ## Spinning The Wheel
 
   Call the spinTo method and pass in the index (starting from 0)
   
@@ -55,8 +55,9 @@ dependencies {
     myWheel.spinTo(int index)
    ```
 
+<br> <br>
 
-### Implement Callback
+## Implement Callback
 
 When the animation ends a callback method can be called
 
@@ -79,5 +80,5 @@ When the animation ends a callback method can be called
   
   
   
-  ### End
+  #### End
   
