@@ -68,9 +68,10 @@ When the animation ends a callback method can be called
     myWheel.setCallback(myCallback);
    ```
   
+  <br><br>
   
   
-  ### Additional Methods
+  ## Additional Methods
   
   - setWheel (ImageView wheel)
   - setNumberOfSlices (int number_of_slices)
