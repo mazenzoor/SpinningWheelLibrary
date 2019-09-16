@@ -1,9 +1,10 @@
+package cloud.thecode.exampleapp;
+
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
-import android.support.v4.view.animation.PathInterpolatorCompat;
 import android.view.animation.Interpolator;
-import android.widget.Button;
 import android.widget.ImageView;
+import androidx.core.view.animation.PathInterpolatorCompat;
 
 public class Wheel {
 
@@ -105,7 +106,7 @@ public class Wheel {
     //// spins the wheel will do before stopping
 
     public
-    Wheel(ImageView wheelImageView int nbOfSlices, int nbOfSpins) {
+    Wheel(ImageView wheelImageView, int nbOfSlices, int nbOfSpins) {
 
         this(wheelImageView, nbOfSlices);
 
@@ -266,6 +267,6 @@ public class Wheel {
                 (float) b,
                 (float) c,
                 (float) d
-                );
+        );
     }
 }
