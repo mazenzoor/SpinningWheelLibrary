@@ -19,16 +19,16 @@ dependencies {
 }
 ```
  <br> <br>
-### Implementation
+## Implementation
 
-#### Create a Wheel object using constructors
+### Create a Wheel object using constructors
 
 ```java
 
   Wheel myWheel = new Wheel(); 
  ```
  
- #### Constructor Parameters _[ optional ]_
+ ### Constructor Parameters _[ optional ]_
  
  ```java
 
@@ -47,7 +47,7 @@ dependencies {
   
   <br><br>
   
-  #### Spinning The Wheel
+  ### Spinning The Wheel
 
   Call the spinTo method and pass in the index (starting from 0)
   
@@ -56,7 +56,7 @@ dependencies {
    ```
 
 
-#### Implement Callback
+### Implement Callback
 
 When the animation ends a callback method can be called
 
@@ -69,7 +69,7 @@ When the animation ends a callback method can be called
   
   
   
-  #### Additional Methods
+  ### Additional Methods
   
   - setWheel (ImageView wheel)
   - setNumberOfSlices (int number_of_slices)
