@@ -11,11 +11,6 @@ public class Wheel {
     ////  to create and animate the wheel functionality
 
 
-    //// The button that will trigger the spin
-    protected
-    Button spin_button;
-
-
     //// The image view of the wheel
     protected
     ImageView wheel;
@@ -97,11 +92,9 @@ public class Wheel {
     //// nbOfSlices : integer of the number of slices in the wheel
 
     public
-    Wheel(ImageView wheelImageView, Button spinButton, int nbOfSlices) {
+    Wheel(ImageView wheelImageView, int nbOfSlices) {
 
         this.wheel = wheelImageView;
-
-        this.spin_button = spinButton;
 
         this.number_of_slices = nbOfSlices;
 
@@ -113,9 +106,9 @@ public class Wheel {
     //// spins the wheel will do before stopping
 
     public
-    Wheel(ImageView wheelImageView, Button spinButton, int nbOfSlices, int nbOfSpins) {
+    Wheel(ImageView wheelImageView int nbOfSlices, int nbOfSpins) {
 
-        this(wheelImageView, spinButton, nbOfSlices);
+        this(wheelImageView, nbOfSlices);
 
         this.spin_factor = nbOfSpins;
 
@@ -126,9 +119,9 @@ public class Wheel {
     //// parameter to specify the animation duration
 
     public
-    Wheel(ImageView wheelImageView, Button spinButton, int nbOfSlices, int nbOfSpins, int animationDuration) {
+    Wheel(ImageView wheelImageView, int nbOfSlices, int nbOfSpins, int animationDuration) {
 
-        this(wheelImageView, spinButton, nbOfSlices, nbOfSpins);
+        this(wheelImageView, nbOfSlices, nbOfSpins);
 
         this.animation_duration = animationDuration;
 
@@ -249,12 +242,6 @@ public class Wheel {
         this.callback = wheelCallback;
 
     }
-
-
-    public void setSpinButton(Button spin_button) {
-        this.spin_button = spin_button;
-    }
-
 
     public void setWheel(ImageView wheel) {
         this.wheel = wheel;
