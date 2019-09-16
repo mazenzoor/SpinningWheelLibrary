@@ -1,6 +1,24 @@
 # SpinningWheelLibrary
 
 
+## Import in your project
+1. Add in root build.gradle file
+```gradle
+allprojects {
+  repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+	}
+}
+ ```
+
+2.Add the dependency
+```gradle
+dependencies {
+  implementation 'com.github.mzpro10:SpinningWheelLibrary:1.0'
+	}
+```
+ <br> <br>
 ### Implementation
 
 #### Create a Wheel object using constructors
