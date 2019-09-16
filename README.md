@@ -49,3 +49,17 @@ When the animation ends a callback method can be called
     myWheel.setCallback(myCallback);
    ```
   
+  
+  
+  #### Additional Methods
+  
+  - setWheel (ImageView wheel)
+  - setNumberOfSlices (int number_of_slices)
+  - setGoToIndex (int go_to_index)
+  - setSpinFactor (int spin_factor) -- set the number of rotations for the animation
+  - setInterpolator (double a, double b, double c, double d) -- Create a pathinterpolator for the animation
+  
+  
+  
+  ### End
+  
