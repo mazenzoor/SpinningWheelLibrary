@@ -32,12 +32,15 @@ dependencies {
  
  ```java
 
-  Wheel myWheel = new Wheel(ImageView wheelImageView, 
+  Wheel myWheel = new Wheel(ImageView wheelImageView,
+  			      ImageView needleImageViewint,
                               int nbOfSlices 
                               [int nbOfSpins, int animationDuration]); 
    ```
   
   - **wheelImageView** : The ImageView from layout (only the circular part)
+  
+  - **needleImageView** : The ImageView that points to the needle view
     
   - **nbOfSlices** : The number of slices in your wheel (start count from 1)
   
