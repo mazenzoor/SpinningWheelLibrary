@@ -1,10 +1,17 @@
-package cloud.thecode.exampleapp;
+package cloud.thecode.wheeloffortune;
 
 import android.animation.Animator;
+import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.util.Log;
+import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.ImageView;
 import androidx.core.view.animation.PathInterpolatorCompat;
+
+
 
 public class Wheel {
 
@@ -16,6 +23,9 @@ public class Wheel {
     protected
     ImageView wheel;
 
+
+    //// Needle image view
+    ImageView needle;
 
     //// Number of slices on the wheel
     protected
@@ -61,13 +71,16 @@ public class Wheel {
     //// The time it takes for the wheel
     //// to complete animating
     protected
-    int animation_duration = 3000;
+    int animation_duration = 2000;
 
 
     //// Interpolator to ease the animation
     protected
     Interpolator interpolator =
-            PathInterpolatorCompat.create(0.28f,-0.12f,0f,1.05f);
+            PathInterpolatorCompat.create(0.18f,-0.12f,0f,1.05f);
+
+
+    protected Keyframe[] keyframes;
 
 
     //// Wheel Callback object that will be called
@@ -101,14 +114,32 @@ public class Wheel {
     }
 
 
+
+    //// The constructor that initializes everything
+    //// Required params are
+    //// wheel : Image View of the wheel
+    //// nbOfSlices : integer of the number of slices in the wheel
+
+    public
+    Wheel(ImageView wheelImageView, ImageView needleImageView, int nbOfSlices) {
+
+        this.wheel = wheelImageView;
+
+        this.number_of_slices = nbOfSlices;
+
+        this.needle = needleImageView;
+
+    }
+
+
     //// Same constructor that takes an extra
     //// parameter to specify the number of
     //// spins the wheel will do before stopping
 
     public
-    Wheel(ImageView wheelImageView, int nbOfSlices, int nbOfSpins) {
+    Wheel(ImageView wheelImageView, ImageView needleImageView, int nbOfSlices, int nbOfSpins) {
 
-        this(wheelImageView, nbOfSlices);
+        this(wheelImageView, needleImageView, nbOfSlices);
 
         this.spin_factor = nbOfSpins;
 
@@ -119,9 +150,9 @@ public class Wheel {
     //// parameter to specify the animation duration
 
     public
-    Wheel(ImageView wheelImageView, int nbOfSlices, int nbOfSpins, int animationDuration) {
+    Wheel(ImageView wheelImageView, ImageView needleImageViewint, int nbOfSlices, int nbOfSpins, int animationDuration) {
 
-        this(wheelImageView, nbOfSlices, nbOfSpins);
+        this(wheelImageView, needleImageViewint, nbOfSlices, nbOfSpins);
 
         this.animation_duration = animationDuration;
 
@@ -180,11 +211,13 @@ public class Wheel {
 
         wheel.setPivotY(wheel.getMeasuredHeight() / 2f);
 
-        animator.setInterpolator(interpolator);
+        animator.setInterpolator(new AccelerateDecelerateInterpolator());
 
         animator.setDuration(animation_duration);
 
         animator.start();
+
+        animateNeedle();
 
         animator.addListener(new Animator.AnimatorListener() {
 
@@ -229,6 +262,63 @@ public class Wheel {
 
 
     }
+
+
+
+    public void animateNeedle() {
+
+        if(needle == null)
+            return;
+
+        int totalNumberOfSlices = number_of_slices * ( ((int) rotate_by_degrees / 360) + spin_factor );
+
+        Log.d("FIND ME", "total slices : " + totalNumberOfSlices + ", " + totalNumberOfSlices * 2);
+
+        float Tx;
+
+        //// Create the keyframes
+
+        keyframes = new Keyframe[totalNumberOfSlices*2];
+
+        for (int i = 0; i < totalNumberOfSlices * 2 - 1; i++) {
+
+
+            //// Calculate the time(x) = sin (5x/PI) squared where x is the current index
+
+            Tx = ((float) i / totalNumberOfSlices)/2f;
+
+
+            //// Keyframes have a value of 0 on even and -22 on odd
+
+            keyframes[i] = Keyframe.ofFloat(Tx, (i%2 == 0 ? -22 : 0) );
+
+        }
+
+
+        keyframes[totalNumberOfSlices * 2 - 1] = Keyframe.ofFloat(1, 0 );
+
+        PropertyValuesHolder pvhRoation = PropertyValuesHolder.ofKeyframe(View.ROTATION, keyframes);
+
+
+        //// Create the object animator and set
+        //// all params
+
+        ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(needle, pvhRoation);
+
+
+        needle.setPivotX(needle.getMeasuredWidth() / 2f);
+
+        needle.setPivotY(0);
+
+        animator.setDuration( animation_duration );
+
+        animator.setInterpolator(new AccelerateDecelerateInterpolator());
+
+        animator.start();
+
+
+    } // end animateNeedle()
+
 
 
 
